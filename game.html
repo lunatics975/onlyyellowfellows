@@ -12,7 +12,7 @@
                 </style>
                     <script>
                     var ctx = document.getElementById("canvas1").getContext("2d");
-
+                    var mult = 13
                     function drawpaddel1(x,y){
                     ctx.beginPath();
                     ctx.lineWidth = "4";
@@ -36,11 +36,14 @@
                     ctx.fill();
                     ctx.closePath();
                     }
+                    
+                    function gameloop(){
+                        drawpaddel1(50,180);
+                        drawpaddel2(950,180);
+                        drawball(500,250);
+                    }
 
-                    drawpaddel1(50,180);
-                    drawpaddel2(950,180);
-                    drawball(500,250);
-
+                    setInterval(gameloop, mult);
                     </script>
         
         </body>
