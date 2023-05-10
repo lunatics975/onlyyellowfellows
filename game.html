@@ -11,6 +11,8 @@
                     }
                 </style>
                     <script>
+                    var dx = 6
+                    var ballnewposition = 500
                     var ctx = document.getElementById("canvas1").getContext("2d");
                     var mult = 13
                     function drawpaddel1(x,y){
@@ -32,18 +34,20 @@
                     function drawball(x,y){
                     ctx.beginPath();
                     ctx.fillStyle = 'black';
-                    ctx.arc(x,y,25, 0, Math.PI * 2);
+                    ctx.arc(ballnewposition+dx,y,25, 0, Math.PI * 2);
+                    ballnewposition +=dx
                     ctx.fill();
                     ctx.closePath();
                     }
                     
                     function gameloop(){
+                        ctx.clearRect(0,0,1000,500);
                         drawpaddel1(50,180);
                         drawpaddel2(950,180);
-                        drawball(500,250);
+                        drawball(ballnewposition,250);
                     }
 
-                    setInterval(gameloop, mult);
+                    setInterval(gameloop, 60);
                     </script>
         
         </body>
